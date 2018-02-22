@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "SendMsg";
+    Layout = "~/Views/Shared/_LayoutTopic.cshtml";
+}
+
+<div class="jumbotron">
+    <h2>Send Message To Service Bus Queue</h2>
+    @using (Html.BeginForm("SendMsg", "Topic", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td colspan="5" align="center">
+                    <h6>@ViewBag.TopicMsg</h6>
+                </td>
+            </tr>
+            <tr>
+                <td>Enter ConnectionString/Endpoint for service bus topic:</td>
+                <td>
+                    @Html.TextBox("txtEndpoint", (string)ViewBag.Endpoint2)
+                </td>
+            </tr>
+            <tr>
+                <td>Enter Servicebus Toipc Name:</td>
+                <td>
+                    @Html.Label("txtQueueName", (string)ViewBag.QueueName2)
+                </td>
+            </tr>
+            @*<tr>
+                <td>Enter message for service bus queue:</td>
+                <td>
+                    @Html.TextBox("txtSend")
+                </td>
+                <td>(@ViewBag.MsgCount)</td>
+            </tr>*@
+            <tr>
+                <td colspan="2" align="right">
+                    <input id="btnSend" type="submit" name="Send" value="Send Message" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                   (It will send <b>Message0-4</b> and will created three subscriptions<br /> <b>AllMessages, HighProperty and LowProperty.)</b>
+                </td>
+            </tr>
+        </table>
+    }
+</div>

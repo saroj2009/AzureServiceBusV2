@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "GetMsg";
+    Layout = "~/Views/Shared/_LayoutTopic.cshtml";
+}
+
+<div class="jumbotron">
+    <h2>Get Message To Service Bus Queue</h2>
+    @using (Html.BeginForm("GetMsg", "Topic", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td colspan="5" align="center">
+                    @*<h6>@ViewBag.Msg12</h6>*@
+                </td>
+            </tr>
+            <tr>
+                <td>Enter ConnectionString/Endpoint for service bus topic:</td>
+                <td>
+                    @Html.TextBox("txtEndpoint", (string)ViewBag.Endpoint2)
+                </td>
+            </tr>
+            <tr>
+                <td>Enter Servicebus Topic Name:</td>
+                <td>
+                    @Html.Label("txtQueueName", (string)ViewBag.QueueName2)
+                </td>
+            </tr>
+            <tr>
+                <td>Enter Subscription Name:</td>
+                <td>
+                    @Html.TextBox("txtSubscriptionName", (string)ViewBag.Subscription)
+                </td>
+            </tr>
+            <tr>
+                <td>Get message from service bus topic:</td>
+                <td>
+                    @Html.Label("txtGet", (string)ViewBag.Qmsg4)
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <input id="btnGet" type="submit" name="Send" value="Get Message" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

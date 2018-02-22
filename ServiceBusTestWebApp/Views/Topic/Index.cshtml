@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTopic.cshtml";
+}
+
+<div class="jumbotron">
+    <h2>Azure Service Bus Endpoint and Topic Name</h2>
+    @using (Html.BeginForm("Index", "Topic", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td colspan="2" align="center">
+                    <h6>@ViewBag.Msg</h6>
+                </td>
+            </tr>
+            <tr>
+                <td>Enter ConnectionString/Endpoint for service bus topic:</td>
+                <td>
+                    @Html.TextBox("txtEndpoint", (string)ViewBag.Endpoint)
+                </td>
+            </tr>
+            <tr><td colspan="2"><h6>EX: "Endpoint=sb://skpqueuetest.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;<br />SharedAccessKey=VhayAssHzW/WDMZuzTnGBXpTyD0qbm+Fibnwjsoar/0="</h6></td></tr>
+            <tr>
+                <td>Enter Servicebus Topic Name:</td>
+                <td>
+                    @Html.TextBox("txtQueueName", (string)ViewBag.QueueName)
+                </td>
+            </tr>
+            <tr><td colspan="2"><h6>(NOTE: It will create the topic if it does not exist already)</h6></td></tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <input id="btnSend" type="submit" name="Send" value="Submit" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
